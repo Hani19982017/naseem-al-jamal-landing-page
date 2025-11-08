@@ -1,0 +1,35 @@
+
+*
+{
+    padding: 0px;
+    margin: 0px;
+}
+body
+{
+    padding: 10px;
+    height: 100vh;
+}
+.messaging_box 
+{
+    border: 1px black solid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    transition-timing-function: 
+cubic-bezier(.4, 0, .2, 1);
+    transition-duration: 167ms;
+}
+ i
+{
+  cursor: pointer;
+}
+.message_content_box
+{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+      transition-timing-function: 
+cubic-bezier(.4, 0, .2, 1);
+    transition-duration: 167ms;
+}

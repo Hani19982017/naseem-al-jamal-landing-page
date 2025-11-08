@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Naseem Al Jamal | Barbershop – Dubai</title>
+  <meta name="description"
+    content="Premium haircuts, beard shaving, Moroccan bath, mani/pedi, skin care, keratin treatments and more in Dubai. Book at Naseem Al Jamal." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --fg: #f6f6f6;
+      --muted: #c7c7c7;
+      --line: rgba(255, 255, 255, .08);
+      --gold: #d9b24b;
+      --gold2: #f0d06b;
+      --card: #131313;
+      --radius: 18px;
+      --container: 1100px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    /* Layout helpers */
+    .container {
+      width: min(var(--container), 94%);
+      margin: auto
+    }
+
+    .section {
+      padding: clamp(34px, 6vw, 70px) 0
+    }
+
+    .grid {
+      display: grid;
+      gap: clamp(14px, 2.6vw, 22px)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      line-height: 1.1
+    }
+
+    .btn:where(:hover, :focus-visible) {
+      transform: translateY(-1px);
+      transition: .18s ease
+    }
+
+    .btn.gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #121212;
+      font-weight: 700;
+      border: none
+    }
+
+    .btn.soft {
+      background: rgba(255, 255, 255, .04)
+    }
+
+    .btn.block {
+      width: 100%
+    }
+
+    .btn-lg {
+      padding: 14px 22px;
+      font-weight: 600
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 11, 11, .7);
+      backdrop-filter: saturate(160%) blur(8px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .brand img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--line);
+    }
+
+    .brand-title {
+      display: flex;
+      flex-direction: column
+    }
+
+    .brand-title .name {
+      font-weight: 800;
+      font-size: clamp(18px, 2.4vw, 22px);
+      letter-spacing: .2px
+    }
+
+    .brand-title .sub {
+      font-size: clamp(12px, 1.8vw, 14px);
+      color: var(--muted)
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(18px, 4vw, 36px);
+      align-items: center
+    }
+
+    .headline {
+      font-size: clamp(28px, 5.2vw, 48px);
+      line-height: 1.08;
+      margin: 0
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(14px, 2vw, 18px);
+      max-width: 60ch
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px
+    }
+
+    .hero-media {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #0f0f0f
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      display: block
+    }
+
+    /* Services */
+    h2.section-title {
+      font-size: clamp(22px, 3.2vw, 32px);
+      margin: 0 0 14px
+    }
+
+    .services .cards {
+      grid-template-columns: repeat(12, 1fr)
+    }
+
+    .card {
+      grid-column: span 4;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px
+    }
+
+    .card h3 {
+      margin: .2rem 0 .35rem;
+      font-size: clamp(15px, 1.8vw, 18px)
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(13px, 1.8vw, 15px)
+    }
+
+    @media (max-width:980px) {
+      .card {
+        grid-column: span 6
+      }
+    }
+
+    @media (max-width:640px) {
+      .card {
+        grid-column: span 12
+      }
+    }
+
+    /* Instagram grid */
+    .insta {
+      background: #101010;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .insta-grid {
+      grid-template-columns: repeat(12, 1fr)
+    }
+
+    .insta-item {
+      grid-column: span 4;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0f0f0f
+    }
+
+    .insta-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    @media (max-width:980px) {
+      .insta-item {
+        grid-column: span 6
+      }
+    }
+
+    @media (max-width:640px) {
+      .insta-item {
+        grid-column: span 12
+      }
+    }
+
+    /* Map / Info */
+    iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      border-radius: var(--radius)
+    }
+
+    .info-grid {
+      grid-template-columns: 1.1fr .9fr
+    }
+
+    @media (max-width:880px) {
+
+      .hero,
+      .info-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted)
+    }
+
+    .hours {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 8px;
+      color: var(--muted)
+    }
+
+    /* Footer */
+    footer {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding: 18px 0
+    }
+
+    /* Mobile sticky actions */
+    .mobile-bar {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      z-index: 60;
+      display: none
+    }
+
+    .mobile-bar .wrap {
+      width: min(620px, 92%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    @media (max-width:640px) {
+      body {
+        padding-bottom: 86px
+      }
+
+      /* space for sticky bar */
+      .mobile-bar {
+        display: block
+      }
+
+      .nav-actions {
+        display: none
+      }
+
+      /* cleaner header on phones */
+      .brand img {
+        width: 46px;
+        height: 46px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Mobile sticky action buttons -->
+  <div class="mobile-bar" data-aos="fade-up" data-aos-offset="0" data-aos-duration="500">
+    <div class="wrap">
+      <a class="btn gold btn-lg" href="tel:+971526470373" data-aos="zoom-in" data-aos-delay="50">Call Now</a>
+      <a class="btn soft btn-lg" href="https://wa.me/971526470373" target="_blank" rel="noopener" data-aos="zoom-in"
+        data-aos-delay="120">WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand" data-aos="fade-right">
+        <img src="images/logo.jpg" alt="Naseem Al Jamal logo" loading="eager" />
+        <div class="brand-title">
+          <span class="name">Naseem Al Jamal</span>
+          <span class="sub">Barbershop • Dubai</span>
+        </div>
+      </div>
+      <div class="nav-actions" data-aos="fade-left" data-aos-delay="120">
+        <a class="btn gold" href="tel:+971526470373">Call Now</a>
+        <a class="btn soft" href="https://wa.me/971526470373" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="section">
+    <div class="container hero">
+      <div data-aos="fade-up">
+        <h1 class="headline">Precision Cuts &amp; Classic Grooming for Modern Gentlemen</h1>
+        <p class="lead">
+          At <strong>Naseem Al Jamal</strong>, we combine expertise and elegance. Enjoy premium haircuts, beard styling,
+          Moroccan baths, skincare, and more — all in one refined space in Dubai.
+        </p>
+        <div class="cta-row">
+          <a class="btn gold btn-lg" href="https://maps.app.goo.gl/PTeY7adsX4gcgH6M7" target="_blank" rel="noopener"
+            data-aos="zoom-in" data-aos-delay="100">Find Us on Google Maps</a>
+          <a class="btn soft btn-lg" href="#services" data-aos="zoom-in" data-aos-delay="180">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-media" data-aos="fade-left" data-aos-delay="120">
+        <img src="images/Screenshot 2025-11-07 152526.png" alt="Instagram overview of Naseem Al Jamal" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section services">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+      <p class="lead" style="text-align:center;margin:0 0 18px;color:var(--muted)" data-aos="fade-up"
+        data-aos-delay="80">
+        Haircuts • Beard Shaving • Moroccan Bath • Mani/Pedi • Skin Care • Keratin Protein
+      </p>
+      <div class="grid cards">
+        <div class="card" data-aos="fade-up">
+          <h3>Haircuts</h3>
+          <p>Classic scissor cuts and modern fades tailored to your face shape.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="80">
+          <h3>Beard Shaving</h3>
+          <p>Hot towel shaves &amp; precise beard shaping for crisp lines.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="160">
+          <h3>Moroccan Bath</h3>
+          <p>Deep-cleansing ritual for full relaxation and refreshed skin.</p>
+        </div>
+        <div class="card" data-aos="fade-up">
+          <h3>Mani / Pedi</h3>
+          <p>Clean, hygienic hand &amp; foot care for a polished look.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="80">
+          <h3>Skin Care</h3>
+          <p>Facials and routines to keep your skin healthy and glowing.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="160">
+          <h3>Keratin Protein</h3>
+          <p>Smoothing &amp; strengthening for manageable hair.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="section insta">
+    <div class="container">
+      <h2 class="section-title" style="text-align:center" data-aos="fade-up">From Our Instagram</h2>
+      <div class="grid insta-grid" aria-label="Recent work">
+        <div class="insta-item" data-aos="zoom-in"><img src="images/1.png" alt="In-shop grooming"></div>
+        <div class="insta-item" data-aos="zoom-in" data-aos-delay="100"><img src="images/2.png" alt="L'Oreal products">
+        </div>
+        <div class="insta-item" data-aos="zoom-in" data-aos-delay="200"><img src="images/3.png"
+            alt="Hair styling moment"></div>
+      </div>
+      <div style="text-align:center;margin-top:14px">
+        <a class="btn soft" href="https://www.instagram.com/salon_nasim_aljamal" target="_blank" rel="noopener"
+          data-aos="fade-up" data-aos-delay="80">Visit Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Contact -->
+  <section class="section">
+    <div class="container info-grid grid">
+      <div data-aos="fade-right">
+        <h2 class="section-title">Find Us</h2>
+        <p class="pill">Dubai, United Arab Emirates • صالون نسيم الجمال</p>
+        <div style="height:12px"></div>
+        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Naseem%20Al%20Jamal%20Barbershop%20Dubai&output=embed"></iframe>
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn soft" href="https://maps.app.goo.gl/PTeY7adsX4gcgH6M7" target="_blank" rel="noopener"
+            data-aos="zoom-in">Open in Google Maps</a>
+          <a class="btn soft" href="https://wa.me/971526470373" target="_blank" rel="noopener" data-aos="zoom-in"
+            data-aos-delay="100">Share Location</a>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-delay="120">
+        <h2 class="section-title">Book Your Appointment</h2>
+        <p class="lead" style="color:var(--muted);margin-top:-2px">We reply fast during working hours. Walk-ins welcome
+          (subject to availability).</p>
+        <div class="grid">
+          <a class="btn gold btn-lg" href="tel:+971526470373" data-aos="zoom-in">Call +971 52 647 0373</a>
+          <a class="btn soft btn-lg" href="https://wa.me/971526470373" target="_blank" rel="noopener" data-aos="zoom-in"
+            data-aos-delay="100">Chat on WhatsApp</a>
+        </div>
+        <div style="height:16px"></div>
+        <div class="hours" data-aos="fade-up">
+          <span>Sun–Thu</span><span>10:00 – 22:00</span>
+          <span>Fri</span><span>14:00 – 22:00</span>
+          <span>Sat</span><span>10:00 – 22:00</span>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section" style="padding-top:0">
+    <div class="container footer-inner" data-aos="fade-up">
+      <div>© <span id="y"></span> Naseem Al Jamal • All rights reserved.</div>
+      <div class="pill">+971 52 647 0373</div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 80
+    });
+
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
